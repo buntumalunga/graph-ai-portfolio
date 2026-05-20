@@ -6,163 +6,231 @@
 <title>AI Portfolio | Sydney Malunga</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Helvetica Neue',Arial,sans-serif}
-html{scroll-behavior:smooth}
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:'Helvetica Neue',Arial,sans-serif
+}
 
-body{background:#fdf6f0;color:#1b2a41}
+html{
+  scroll-behavior:smooth
+}
+
+body{
+  background:#fdf6f0;
+  color:#1b2a41;
+  line-height:1.6;
+}
 
 .hero{
- height:85vh;
- display:flex;
- flex-direction:column;
- justify-content:center;
- align-items:center;
- text-align:center;
+  height:85vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:20px;
 }
 
 .avatar{
- width:150px;
- height:150px;
- border-radius:50%;
- object-fit:cover;
- margin-bottom:25px;
- border:5px solid #1b2a41;
+  width:150px;
+  height:150px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:25px;
+  border:5px solid #1b2a41;
 }
 
 .hero h1{
- font-size:3rem;
- font-weight:500;
- margin-bottom:10px;
- text-transform:lowercase;
+  font-size:3rem;
+  font-weight:500;
+  margin-bottom:10px;
+  text-transform:lowercase;
 }
 
 .hero p{
- color:#f57c00;
- font-size:1rem;
- letter-spacing:1px;
+  color:#f57c00;
+  font-size:1rem;
+  letter-spacing:1px;
+  text-transform:lowercase;
 }
 
 nav{
- display:flex;
- justify-content:center;
- gap:40px;
- padding:18px;
- border-top:1px solid #eee;
- border-bottom:1px solid #eee;
- background:#fff;
- position:sticky;
- top:0;
+  display:flex;
+  justify-content:center;
+  gap:40px;
+  padding:18px;
+  border-top:1px solid #eee;
+  border-bottom:1px solid #eee;
+  background:#fff;
+  position:sticky;
+  top:0;
+  z-index:1000;
 }
 
 nav a{
- text-decoration:none;
- color:#1b2a41;
- font-size:0.85rem;
- letter-spacing:1px;
- text-transform:lowercase;
+  text-decoration:none;
+  color:#1b2a41;
+  font-size:0.85rem;
+  letter-spacing:1px;
+  text-transform:lowercase;
+  transition:0.2s;
 }
 
-nav a:hover{color:#f57c00}
+nav a:hover{
+  color:#f57c00
+}
 
 .section{
- max-width:1100px;
- margin:auto;
- padding:80px 20px;
+  max-width:1100px;
+  margin:auto;
+  padding:80px 20px;
 }
 
 .section h2{
- font-size:1.8rem;
- margin-bottom:40px;
- text-transform:lowercase;
+  font-size:1.8rem;
+  margin-bottom:40px;
+  text-transform:lowercase;
 }
 
 .about-grid{
- display:grid;
- grid-template-columns:1.2fr 1fr;
- gap:50px;
- align-items:center;
+  display:grid;
+  grid-template-columns:1.2fr 1fr;
+  gap:50px;
+  align-items:center;
 }
 
 .about-img{
- height:420px;
- border-radius:6px;
- background:url('https://github.com/buntumalunga/graph-ai-portfolio/blob/main/1652783415301.jpg?raw=true') center/cover no-repeat;
+  height:420px;
+  border-radius:6px;
+  background:url('https://github.com/buntumalunga/graph-ai-portfolio/blob/main/1652783415301.jpg?raw=true') center/cover no-repeat;
 }
 
 .about-text p{
- margin-bottom:18px;
- color:#333;
- line-height:1.8;
+  margin-bottom:18px;
+  color:#333;
+  line-height:1.8;
 }
 
 .card-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
- gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
 }
 
 .card{
- background:#fff;
- padding:25px;
- border:1px solid #eee;
- transition:0.25s;
+  background:#fff;
+  padding:25px;
+  border:1px solid #eee;
+  transition:0.25s;
+  border-radius:6px;
 }
 
-.card:hover{transform:translateY(-5px)}
+.card:hover{
+  transform:translateY(-5px)
+}
 
 .card h3{
- margin-bottom:10px;
- font-weight:500;
- text-transform:lowercase;
- color:#1b2a41;
+  margin-bottom:10px;
+  font-weight:500;
+  text-transform:lowercase;
+  color:#1b2a41;
 }
 
-.card p, .card li{
- color:#444;
- font-size:0.95rem;
+.card p,
+.card li{
+  color:#444;
+  font-size:0.95rem;
 }
 
-.card ul{padding-left:18px;margin-top:10px}
+.card ul{
+  padding-left:18px;
+  margin-top:10px;
+}
 
 .sub-grid{
- display:grid;
- grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
- gap:20px;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:20px;
 }
 
 .sub{
- background:#fff;
- padding:45px 20px;
- text-align:center;
- border:1px solid #eee;
- transition:0.25s;
+  background:#fff;
+  padding:35px 25px;
+  border:1px solid #eee;
+  border-radius:6px;
+  transition:0.25s;
+  text-align:left;
 }
 
-.sub:hover{transform:scale(1.04)}
+.sub:hover{
+  transform:translateY(-5px)
+}
 
-.sub h3{margin-bottom:8px;color:#1b2a41;text-transform:lowercase}
-.sub p{color:#888;font-size:0.9rem}
+.sub h3{
+  margin-bottom:10px;
+  color:#1b2a41;
+  text-transform:lowercase;
+  font-size:1.1rem;
+}
+
+.sub p{
+  color:#666;
+  font-size:0.95rem;
+  margin-bottom:18px;
+}
+
+.project-link{
+  display:inline-block;
+  text-decoration:none;
+  color:#fff;
+  background:#1b2a41;
+  padding:10px 18px;
+  border-radius:4px;
+  font-size:0.85rem;
+  text-transform:lowercase;
+  letter-spacing:0.5px;
+  transition:0.2s;
+}
+
+.project-link:hover{
+  background:#f57c00;
+}
 
 footer{
- text-align:center;
- padding:50px;
- font-size:0.75rem;
- color:#666;
+  text-align:center;
+  padding:50px;
+  font-size:0.75rem;
+  color:#666;
 }
 
 @media(max-width:800px){
- .about-grid{grid-template-columns:1fr}
- .hero h1{font-size:2.2rem}
+
+  .about-grid{
+    grid-template-columns:1fr
+  }
+
+  .hero h1{
+    font-size:2.2rem
+  }
+
+  nav{
+    gap:20px;
+    flex-wrap:wrap;
+  }
 }
 
 </style>
 </head>
+
 <body>
 
 <section class="hero">
-  
+
   <h1>buntubethu malunga</h1>
   <p>generative ai • research • nutrition</p>
+
 </section>
 
 <nav>
@@ -172,23 +240,42 @@ footer{
 </nav>
 
 <section id="about" class="section">
+
   <h2>about</h2>
+
   <div class="about-grid">
+
     <div class="about-img"></div>
+
     <div class="about-text">
-      <p>I am a Clinical Research Assistant and Culinary Nutrition Professional with a background in Biochemistry, working at the intersection of science, nutrition and public health.</p>
-      <p>I explore how food and behavioural insights influence health outcomes, translating research into practical and sustainable nutrition solutions.</p>
-      <p>My work bridges clinical research, data analysis and creative food systems.</p>
+      <p>
+        I am a Clinical Research Assistant and Culinary Nutrition Professional with a background in Biochemistry, working at the intersection of science, nutrition and public health.
+      </p>
+
+      <p>
+        I explore how food and behavioural insights influence health outcomes, translating research into practical and sustainable nutrition solutions.
+      </p>
+
+      <p>
+        My work bridges clinical research, data analysis and creative food systems.
+      </p>
     </div>
+
   </div>
+
 </section>
 
 <section id="course" class="section">
+
   <h2>course</h2>
+
   <div class="card-grid">
+
     <div class="card">
       <h3>overview</h3>
-      <p>8-week immersive course focused on no-code AI tools for productivity, automation and research workflows.</p>
+      <p>
+        8-week immersive course focused on no-code AI tools for productivity, automation and research workflows.
+      </p>
     </div>
 
     <div class="card">
@@ -209,21 +296,75 @@ footer{
         <li>capstone project</li>
       </ul>
     </div>
+
   </div>
+
 </section>
 
 <section id="submissions" class="section">
+
   <h2>submissions</h2>
+
   <div class="sub-grid">
-    <div class="sub"><h3>week 1</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 2</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 3</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 4</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 5</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 6</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 7</h3><p>coming soon</p></div>
-    <div class="sub"><h3>week 8</h3><p>final project</p></div>
+
+    <div class="sub">
+      <h3>workshop 2: automated data analysis</h3>
+
+      <p>
+        Analysis of Gapminder data exploring relationships between global development indicators using AI-assisted workflows and automated data analysis tools.
+      </p>
+
+      <a 
+        class="project-link"
+        href="https://buntumalunga.github.io/graph-ai-portfolio/buntuworkshop2.html"
+        target="_blank"
+      >
+        view project
+      </a>
+    </div>
+
+    <div class="sub">
+      <h3>week 1</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 2</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 3</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 4</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 5</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 6</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 7</h3>
+      <p>coming soon</p>
+    </div>
+
+    <div class="sub">
+      <h3>week 8</h3>
+      <p>final project</p>
+    </div>
+
   </div>
+
 </section>
 
 <footer>
