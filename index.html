@@ -3,221 +3,525 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI Portfolio | Sydney Malunga</title>
+<title>AI Portfolio | Buntubethu Sydney Malunga</title>
+
+<!-- Fonts & Icons -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
 <style>
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Helvetica Neue',Arial,sans-serif
+:root {
+  --primary: #253850;      /* Deep Slate Blue */
+  --accent: #e24c2c;       /* Terracotta Red/Orange */
+  --bg: #f7f4eb;           /* Warm Eggshell Cream */
+  --card-bg: #ffffff;      /* Pure White */
+  --text-dark: #1b2a41;    /* Slate Dark Blue */
+  --text-muted: #53627c;   /* Soft Cool Grey */
+  --border: #e9e5da;       /* Warm subtle border */
 }
 
-html{
-  scroll-behavior:smooth
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Plus Jakarta Sans', 'Helvetica Neue', Arial, sans-serif;
 }
 
-body{
-  background:#fdf6f0;
-  color:#1b2a41;
-  line-height:1.6;
+html {
+  scroll-behavior: smooth;
 }
 
-.hero{
-  height:85vh;
-  display:flex;
-  flex-direction:column;
-  justify-content:center;
-  align-items:center;
-  text-align:center;
-  padding:20px;
+body {
+  background-color: var(--bg);
+  color: var(--text-dark);
+  line-height: 1.7;
+  padding-bottom: 0;
 }
 
-.avatar{
-  width:150px;
-  height:150px;
-  border-radius:50%;
-  object-fit:cover;
-  margin-bottom:25px;
-  border:5px solid #1b2a41;
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg);
+}
+::-webkit-scrollbar-thumb {
+  background: var(--primary);
+  border-radius: 4px;
 }
 
-.hero h1{
-  font-size:3rem;
-  font-weight:500;
-  margin-bottom:10px;
-  text-transform:lowercase;
+/* Hero Section */
+.hero {
+  min-height: 80vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 40px 20px;
+  position: relative;
+  overflow: hidden;
 }
 
-.hero p{
-  color:#f57c00;
-  font-size:1rem;
-  letter-spacing:1px;
-  text-transform:lowercase;
+/* Abstract background elements */
+.hero::before {
+  content: '';
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 300px;
+  height: 300px;
+  background: radial-gradient(circle, rgba(226, 76, 44, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
 }
 
-nav{
-  display:flex;
-  justify-content:center;
-  gap:40px;
-  padding:18px;
-  border-top:1px solid #eee;
-  border-bottom:1px solid #eee;
-  background:#fff;
-  position:sticky;
-  top:0;
-  z-index:1000;
+.hero::after {
+  content: '';
+  position: absolute;
+  bottom: -10%;
+  right: -10%;
+  width: 400px;
+  height: 400px;
+  background: radial-gradient(circle, rgba(37, 56, 80, 0.06) 0%, transparent 70%);
+  border-radius: 50%;
+  z-index: 0;
 }
 
-nav a{
-  text-decoration:none;
-  color:#1b2a41;
-  font-size:0.85rem;
-  letter-spacing:1px;
-  text-transform:lowercase;
-  transition:0.2s;
+.avatar-container {
+  position: relative;
+  margin-bottom: 30px;
+  z-index: 1;
 }
 
-nav a:hover{
-  color:#f57c00
+.avatar {
+  width: 160px;
+  height: 160px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid var(--primary);
+  box-shadow: 0 10px 25px rgba(37, 56, 80, 0.15);
+  transition: transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
-.section{
-  max-width:1100px;
-  margin:auto;
-  padding:80px 20px;
+.avatar:hover {
+  transform: scale(1.05) rotate(2deg);
 }
 
-.section h2{
-  font-size:1.8rem;
-  margin-bottom:40px;
-  text-transform:lowercase;
+.hero h1 {
+  font-size: 3.2rem;
+  font-weight: 600;
+  margin-bottom: 12px;
+  text-transform: lowercase;
+  color: var(--primary);
+  letter-spacing: -1px;
+  z-index: 1;
 }
 
-.about-grid{
-  display:grid;
-  grid-template-columns:1.2fr 1fr;
-  gap:50px;
-  align-items:center;
+.hero p {
+  color: var(--accent);
+  font-size: 1.1rem;
+  font-weight: 500;
+  letter-spacing: 2px;
+  text-transform: lowercase;
+  z-index: 1;
 }
 
-.about-img{
-  height:420px;
-  border-radius:6px;
-  background:url('https://github.com/buntumalunga/graph-ai-portfolio/blob/main/1652783415301.jpg?raw=true') center/cover no-repeat;
+/* Sticky Navigation */
+nav {
+  display: flex;
+  justify-content: center;
+  gap: 50px;
+  padding: 20px;
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  background: rgba(247, 244, 235, 0.95);
+  backdrop-filter: blur(10px);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 10px rgba(37, 56, 80, 0.03);
 }
 
-.about-text p{
-  margin-bottom:18px;
-  color:#333;
-  line-height:1.8;
+nav a {
+  text-decoration: none;
+  color: var(--primary);
+  font-size: 0.9rem;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: lowercase;
+  position: relative;
+  transition: color 0.3s ease;
+  padding: 5px 0;
 }
 
-.card-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+nav a::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 2px;
+  bottom: 0;
+  left: 0;
+  background-color: var(--accent);
+  transition: width 0.3s ease;
 }
 
-.card{
-  background:#fff;
-  padding:25px;
-  border:1px solid #eee;
-  transition:0.25s;
-  border-radius:6px;
+nav a:hover {
+  color: var(--accent);
 }
 
-.card:hover{
-  transform:translateY(-5px)
+nav a:hover::after {
+  width: 100%;
 }
 
-.card h3{
-  margin-bottom:10px;
-  font-weight:500;
-  text-transform:lowercase;
-  color:#1b2a41;
+/* Section Styling */
+.section {
+  max-width: 1100px;
+  margin: auto;
+  padding: 100px 24px;
 }
 
-.card p,
-.card li{
-  color:#444;
-  font-size:0.95rem;
+.section h2 {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 50px;
+  text-transform: lowercase;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.card ul{
-  padding-left:18px;
-  margin-top:10px;
+.section h2::after {
+  content: '';
+  flex-grow: 1;
+  height: 1px;
+  background: var(--border);
 }
 
-.sub-grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-  gap:20px;
+/* About Layout */
+.about-grid {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 60px;
+  align-items: start;
 }
 
-.sub{
-  background:#fff;
-  padding:35px 25px;
-  border:1px solid #eee;
-  border-radius:6px;
-  transition:0.25s;
-  text-align:left;
+.about-img-container {
+  position: relative;
 }
 
-.sub:hover{
-  transform:translateY(-5px)
+.about-img {
+  height: 450px;
+  width: 100%;
+  border-radius: 12px;
+  background: url('https://github.com/buntumalunga/graph-ai-portfolio/blob/main/1652783415301.jpg?raw=true') center/cover no-repeat;
+  box-shadow: 0 20px 40px rgba(37, 56, 80, 0.12);
 }
 
-.sub h3{
-  margin-bottom:10px;
-  color:#1b2a41;
-  text-transform:lowercase;
-  font-size:1.1rem;
+/* Elegant border decorative card behind the image */
+.about-img-container::before {
+  content: '';
+  position: absolute;
+  top: 20px;
+  left: -20px;
+  right: 20px;
+  bottom: -20px;
+  border: 2px solid var(--accent);
+  border-radius: 12px;
+  z-index: -1;
 }
 
-.sub p{
-  color:#666;
-  font-size:0.95rem;
-  margin-bottom:18px;
+.about-text p {
+  margin-bottom: 20px;
+  color: var(--text-dark);
+  font-size: 1.05rem;
 }
 
-.project-link{
-  display:inline-block;
-  text-decoration:none;
-  color:#fff;
-  background:#1b2a41;
-  padding:10px 18px;
-  border-radius:4px;
-  font-size:0.85rem;
-  text-transform:lowercase;
-  letter-spacing:0.5px;
-  transition:0.2s;
+.about-text strong {
+  color: var(--primary);
 }
 
-.project-link:hover{
-  background:#f57c00;
+/* Badge/Tag container */
+.tag-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 30px;
 }
 
-footer{
-  text-align:center;
-  padding:50px;
-  font-size:0.75rem;
-  color:#666;
+.tag {
+  background: var(--card-bg);
+  border: 1px solid var(--border);
+  color: var(--primary);
+  padding: 6px 14px;
+  border-radius: 50px;
+  font-size: 0.8rem;
+  font-weight: 500;
+  text-transform: lowercase;
+  box-shadow: 0 2px 5px rgba(37, 56, 80, 0.02);
 }
 
-@media(max-width:800px){
+.tag.highlight {
+  background: var(--primary);
+  color: var(--bg);
+  border-color: var(--primary);
+}
 
-  .about-grid{
-    grid-template-columns:1fr
+/* Course Grid */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(37, 56, 80, 0.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 4px;
+  height: 100%;
+  background: var(--primary);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(37, 56, 80, 0.06);
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card h3 {
+  margin-bottom: 15px;
+  font-weight: 600;
+  font-size: 1.3rem;
+  text-transform: lowercase;
+  color: var(--primary);
+}
+
+.card p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 20px;
+}
+
+.card ul {
+  padding-left: 20px;
+}
+
+.card li {
+  color: var(--text-dark);
+  font-size: 0.95rem;
+  margin-bottom: 10px;
+  list-style-type: square;
+}
+
+/* Submissions Section & Timeline Layout */
+.sub-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 30px;
+}
+
+.sub {
+  background: var(--card-bg);
+  padding: 40px 30px;
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(37, 56, 80, 0.02);
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.sub::after {
+  content: '';
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 0.8rem;
+  font-weight: 700;
+  color: var(--accent);
+  background: rgba(226, 76, 44, 0.1);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* Style active workshops differently */
+.sub.active {
+  border-color: rgba(226, 76, 44, 0.3);
+  box-shadow: 0 10px 30px rgba(226, 76, 44, 0.04);
+}
+
+.sub.active::after {
+  content: 'completed';
+}
+
+.sub.upcoming::after {
+  content: 'planned';
+  background: rgba(37, 56, 80, 0.08);
+  color: var(--primary);
+}
+
+.sub.active:hover {
+  transform: translateY(-8px);
+  border-color: var(--accent);
+  box-shadow: 0 20px 40px rgba(226, 76, 44, 0.08);
+}
+
+.sub-header {
+  margin-bottom: 15px;
+}
+
+.sub h3 {
+  margin-bottom: 8px;
+  color: var(--primary);
+  text-transform: lowercase;
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+.sub-meta {
+  font-size: 0.8rem;
+  color: var(--accent);
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.sub p {
+  color: var(--text-muted);
+  font-size: 0.95rem;
+  margin-bottom: 25px;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  color: var(--bg);
+  background: var(--primary);
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: lowercase;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  width: fit-content;
+  border: 1px solid var(--primary);
+}
+
+.project-link:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  box-shadow: 0 5px 15px rgba(226, 76, 44, 0.3);
+}
+
+.upcoming-placeholder {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.85rem;
+  color: var(--text-muted);
+  font-style: italic;
+}
+
+.upcoming-placeholder::before {
+  content: '';
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  background-color: var(--text-muted);
+  border-radius: 50%;
+}
+
+/* Footer styling */
+footer {
+  background: var(--primary);
+  color: var(--bg);
+  text-align: center;
+  padding: 60px 20px;
+  font-size: 0.85rem;
+  margin-top: 100px;
+}
+
+footer p {
+  margin-bottom: 15px;
+  letter-spacing: 1px;
+}
+
+.social-links {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+}
+
+.social-links a {
+  color: var(--bg);
+  text-decoration: none;
+  opacity: 0.7;
+  transition: all 0.3s;
+  font-size: 0.8rem;
+  text-transform: lowercase;
+}
+
+.social-links a:hover {
+  opacity: 1;
+  color: var(--accent);
+}
+
+/* Responsive adjustments */
+@media(max-width:900px){
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 40px;
   }
-
-  .hero h1{
-    font-size:2.2rem
+  
+  .about-img {
+    height: 350px;
   }
+  
+  .hero h1 {
+    font-size: 2.6rem;
+  }
+}
 
-  nav{
-    gap:20px;
-    flex-wrap:wrap;
+@media(max-width:600px){
+  nav {
+    gap: 20px;
+    flex-wrap: wrap;
+    padding: 15px;
+  }
+  
+  .hero h1 {
+    font-size: 2.2rem;
+  }
+  
+  .section {
+    padding: 60px 20px;
   }
 }
 
@@ -227,10 +531,11 @@ footer{
 <body>
 
 <section class="hero">
-
-  <h1>buntubethu malunga</h1>
-  <p>generative ai • research • nutrition</p>
-
+  <div class="avatar-container">
+    <img src="https://github.com/buntumalunga/graph-ai-portfolio/blob/main/1652783415301.jpg?raw=true" alt="Buntubethu Sydney Malunga" class="avatar" onerror="this.src='https://api.dicebear.com/7.x/adventurer/svg?seed=Buntu'">
+  </div>
+  <h1>buntubethu sydney malunga</h1>
+  <p>generative ai • clinical research assistant • culinary nutritionist</p>
 </section>
 
 <nav>
@@ -240,80 +545,94 @@ footer{
 </nav>
 
 <section id="about" class="section">
-
   <h2>about</h2>
-
   <div class="about-grid">
-
-    <div class="about-img"></div>
-
+    <div class="about-img-container">
+      <div class="about-img"></div>
+    </div>
     <div class="about-text">
       <p>
-        I am a Clinical Research Assistant and Culinary Nutrition Professional with a background in Biochemistry, working at the intersection of science, nutrition and public health.
+        I am a <strong>Clinical Research Assistant</strong> at the Newlands Clinic in Harare and a <strong>Professional Cook</strong> specialized in Culinary Nutrition. My work is situated at the intersection of biochemistry, public health, and culinary arts.
       </p>
-
       <p>
-        I explore how food and behavioural insights influence health outcomes, translating research into practical and sustainable nutrition solutions.
+        Holding a <strong>BSc Honours in Biochemistry</strong> from the University of Zimbabwe and a <strong>Culinary Nutrition Professional Diploma</strong> (Distinction) from the British Academy of Culinary Nutrition, I develop practical, evidence-based methods for sustainable dietary changes.
       </p>
-
       <p>
-        My work bridges clinical research, data analysis and creative food systems.
+        Currently, I analyze NCDs in HIV-positive cohorts, build R-driven workflows, and run <em>408°F | The Kitchen Lab</em>, exploring the limits of flavor, modern nutrition, and health.
       </p>
+      <div class="tag-container">
+        <span class="tag highlight">r programming</span>
+        <span class="tag">biostatistics</span>
+        <span class="tag">redcap</span>
+        <span class="tag">clinical trials</span>
+        <span class="tag highlight">generative ai</span>
+        <span class="tag">culinary medicine</span>
+        <span class="tag">biochemistry</span>
+      </div>
     </div>
-
   </div>
-
 </section>
 
 <section id="course" class="section">
-
   <h2>course</h2>
-
   <div class="card-grid">
-
     <div class="card">
       <h3>overview</h3>
       <p>
-        8-week immersive course focused on no-code AI tools for productivity, automation and research workflows.
+        Participating in the 8-week intensive course <strong>Generative AI for Work & Research</strong> by The GRAPH Network.
+      </p>
+      <p>
+        This professional cohort program explores no-code AI tooling, LLM engineering, and automated workflows designed to accelerate scientific communication and clinical data processing ethically.
       </p>
     </div>
 
     <div class="card">
       <h3>learning</h3>
       <ul>
-        <li>llms & ai foundations</li>
-        <li>data analysis with ai</li>
-        <li>research automation</li>
-        <li>custom gpts</li>
+        <li>LLM architectures & document synthesis</li>
+        <li>AI data pipelines (Julius, Code Interpreter)</li>
+        <li>Automated literature monitoring</li>
+        <li>RAG chatbots & workflow agents</li>
       </ul>
     </div>
 
     <div class="card">
       <h3>outputs</h3>
       <ul>
-        <li>automated workflows</li>
-        <li>ai-powered tools</li>
-        <li>capstone project</li>
+        <li>Web-based interactive project pages</li>
+        <li>Automated global data reports</li>
+        <li>Custom research assistants & GPTs</li>
+        <li>Synthesized capstone showcase</li>
       </ul>
     </div>
-
   </div>
-
 </section>
 
 <section id="submissions" class="section">
-
   <h2>submissions</h2>
-
   <div class="sub-grid">
 
-    <div class="sub">
-      <h3>workshop 2: automated data analysis</h3>
-
+    <!-- WEEK 1 & 2 -->
+    <div class="sub upcoming">
+      <div class="sub-header">
+        <span class="sub-meta">weeks 1 & 2</span>
+        <h3>websites & presentations</h3>
+      </div>
       <p>
-        Analysis of Gapminder data exploring relationships between global development indicators using AI-assisted workflows and automated data analysis tools.
+        Foundations of LLMs, generating HTML pages, configuring prompt variables, and testing rapid web solutions with no-code tooling.
       </p>
+      <span class="upcoming-placeholder">under development</span>
+    </div>
 
+    <!-- WEEK 3 (Workshop 2) -->
+    <div class="sub active">
+      <div class="sub-header">
+        <span class="sub-meta">week 3 • workshop 2</span>
+        <h3>automated data analysis</h3>
+      </div>
+      <p>
+        Statistical analysis of Gapminder demographics, exploring global development metrics and life expectancy indices using automated AI tools.
+      </p>
       <a 
         class="project-link"
         href="https://buntumalunga.github.io/graph-ai-portfolio/buntuworkshop2.html"
@@ -323,52 +642,82 @@ footer{
       </a>
     </div>
 
-    <div class="sub">
-      <h3>week 1</h3>
-      <p>coming soon</p>
+    <!-- WEEK 4 (Workshop 3) -->
+    <div class="sub active">
+      <div class="sub-header">
+        <span class="sub-meta">week 4 • workshop 3</span>
+        <h3>job market data analysis</h3>
+      </div>
+      <p>
+        Utilized Large Language Models (LLMs) embedded in Google Sheets to parse, clean, and structure unstructured job postings, then conducted descriptive analysis of salaries, languages, and requirements.
+      </p>
+      <a 
+        class="project-link"
+        href="https://buntumalunga.github.io/graph-ai-portfolio/buntuworkshop3.html"
+        target="_blank"
+      >
+        view project
+      </a>
     </div>
 
-    <div class="sub">
-      <h3>week 2</h3>
-      <p>coming soon</p>
+    <!-- WEEK 5 -->
+    <div class="sub upcoming">
+      <div class="sub-header">
+        <span class="sub-meta">week 5</span>
+        <h3>literature reviews & synthesis</h3>
+      </div>
+      <p>
+        Building automated workflows for literature collection, knowledge mapping, and text-mining with Elicit, semantic tools, and custom prompt loops.
+      </p>
+      <span class="upcoming-placeholder">coming soon</span>
     </div>
 
-    <div class="sub">
-      <h3>week 3</h3>
-      <p>coming soon</p>
+    <!-- WEEK 6 -->
+    <div class="sub upcoming">
+      <div class="sub-header">
+        <span class="sub-meta">week 6</span>
+        <h3>custom gpts & chatbots</h3>
+      </div>
+      <p>
+        Configuring Retrieval-Augmented Generation (RAG) platforms to index research libraries, assisting clinicians in navigating nutritional guidelines.
+      </p>
+      <span class="upcoming-placeholder">coming soon</span>
     </div>
 
-    <div class="sub">
-      <h3>week 4</h3>
-      <p>coming soon</p>
+    <!-- WEEK 7 -->
+    <div class="sub upcoming">
+      <div class="sub-header">
+        <span class="sub-meta">week 7</span>
+        <h3>task automation & agents</h3>
+      </div>
+      <p>
+        Orchestrating agent-based email notifications, literature trackers, and autonomous browser sequences to run repetitive curation tasks.
+      </p>
+      <span class="upcoming-placeholder">coming soon</span>
     </div>
 
-    <div class="sub">
-      <h3>week 5</h3>
-      <p>coming soon</p>
-    </div>
-
-    <div class="sub">
-      <h3>week 6</h3>
-      <p>coming soon</p>
-    </div>
-
-    <div class="sub">
-      <h3>week 7</h3>
-      <p>coming soon</p>
-    </div>
-
-    <div class="sub">
-      <h3>week 8</h3>
-      <p>final project</p>
+    <!-- WEEK 8 -->
+    <div class="sub upcoming">
+      <div class="sub-header">
+        <span class="sub-meta">week 8</span>
+        <h3>capstone project & showcase</h3>
+      </div>
+      <p>
+        A final synthesized solution blending clinical nutrition research with data automation and deployment.
+      </p>
+      <span class="upcoming-placeholder">coming soon</span>
     </div>
 
   </div>
-
 </section>
 
 <footer>
-  © 2026 sydney malunga
+  <p>© 2026 sydney malunga • all rights reserved</p>
+  <div class="social-links">
+    <a href="https://www.linkedin.com/in/buntubethu-malunga-088300235" target="_blank">linkedin</a>
+    <a href="https://www.instagram.com/fourzero8_/" target="_blank">instagram (kitchen lab)</a>
+    <a href="https://github.com/buntumalunga" target="_blank">github</a>
+  </div>
 </footer>
 
 </body>
