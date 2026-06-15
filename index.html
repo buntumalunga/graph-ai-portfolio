@@ -419,6 +419,12 @@ nav a:hover::after {
   margin-bottom: 25px;
 }
 
+.link-group {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
 .project-link {
   display: inline-flex;
   align-items: center;
@@ -719,15 +725,30 @@ footer p {
       </a>
     </div>
 
-    <div class="sub upcoming">
+    <div class="sub active">
       <div class="sub-header">
         <span class="sub-meta">week 7</span>
         <h3>genai for communication</h3>
       </div>
       <p>
-        Deploying generative solutions to format research summaries, visuals, and abstracts into accessible public health narratives.
+        Deployed generative solutions to format research summaries, visuals, and abstracts into accessible public health narratives. Created a promotional course showcase flyer using Gemini for initial asset generation and Canva for final adjustments.
       </p>
-      <span class="upcoming-placeholder">coming soon</span>
+      <div class="link-group">
+        <a 
+          class="project-link"
+          href="https://buntumalunga.github.io/graph-ai-portfolio/buntu_claude_abstract.pdf"
+          target="_blank"
+        >
+          view abstract (pdf)
+        </a>
+        <a 
+          class="project-link"
+          href="https://buntumalunga.github.io/graph-ai-portfolio/buntu_ai_showcase.png"
+          target="_blank"
+        >
+          view flyer (png)
+        </a>
+      </div>
     </div>
 
     <div class="sub upcoming">
